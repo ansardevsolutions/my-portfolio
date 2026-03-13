@@ -1,38 +1,31 @@
-import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Navbar/Footer";
+import Home from "./Components/Home";
+import Aboutme from "./Components/Aboutme";
+import Services from "./Components/Services";
+import Project from "./Components/Project";
+import Contact from "./Components/Contact";
+import ScrollDownButton from "./Components/ScrollDownButton";
+import WhyWorkWithMe from "./Components/WhyWorkWithMe";
+import StarBackground from "./Components/StarBackground";
 
-import Navigation from "./components/Navigation";
-import HeroSection from "./components/HeroSection";
-import QuoteSection from "./components/QuoteSection";
-import ProjectsSection from "./components/ProjectsSection";
-import AboutSection from "./components/AboutSection";
-import ContactSection from "./components/ContactSection";
-import Footer from "./components/Footer";
-import PremiumLoader from "./components/PremiumLoader";
-
-export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <PremiumLoader />;
-  }
-
+function App() {
   return (
-    <Box minHeight="100vh" sx={{ backgroundColor: '#282C33' }}>
-      <Navigation />
-      <HeroSection />
-      <QuoteSection />
-      <ProjectsSection />
-      <AboutSection />
-      <ContactSection />
+    <>
+      <StarBackground />
+      <Navbar />
+      <Home />
+      <Aboutme />
+      <Services />
+      <Project />
+      <WhyWorkWithMe />
+      <Contact />
       <Footer />
-    </Box>
+
+      {/* Fixed Scroll Button on all pages */}
+      <ScrollDownButton />
+    </>
   );
 }
+
+export default App;
